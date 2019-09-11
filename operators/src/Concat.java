@@ -2,6 +2,7 @@
  * Created by Piotr on 2019-09-10
  */
 public class Concat {
+    //KONKATENACJA (łączenie stringów)
     public static void main(String[] args) {
         String s1 = "Hello";
         String s2 = "World";
@@ -18,5 +19,8 @@ public class Concat {
         System.out.println("Prawda to w programownaniu wartość " + true);
 
         System.out.println("Czy x jest większe od 0? " + (x > 0));
+
+        System.out.println( 5 + 5 + " ABC"); //10 ABC
+        System.out.println("ABC " + 5 + 5); //ABC 55
     }
 }
