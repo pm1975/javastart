@@ -17,6 +17,6 @@ public class Conversion2 {
         System.out.println("Tekst zaszyfrowany");
         System.out.println("" + letter1 + letter2 + letter3);
 
-        
+
     }
 }
