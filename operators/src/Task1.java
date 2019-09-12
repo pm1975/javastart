@@ -1,10 +1,13 @@
+import java.util.Random;
+
 /**
  * Created by Piotr on 2019-09-11
  */
 public class Task1 {
     public static void main(String[] args) {
-        int x = 10;
-        int y = 20;
+        Random generator = new Random();
+        int x = generator.nextInt(10);
+        int y = generator.nextInt(10);
         boolean result;
         System.out.println("x = " + x + ", y = " + y);
         result = x < y;
