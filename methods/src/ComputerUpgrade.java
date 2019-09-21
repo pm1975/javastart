@@ -3,6 +3,7 @@
  */
 public class ComputerUpgrade {
     void addMemory(Computer computer, int additionalMemory) {
-        computer.memory += additionalMemory;
+        //obiekt computer jest przekazywany przez referencje
+        computer.memory += additionalMemory; //dodatkowa pamięć
     }
 }

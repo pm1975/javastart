@@ -1,7 +1,7 @@
 /**
  * Created by Piotr on 2019-09-19
  */
-public class ComputerFactory {
+public class ComputerFactory { //fabryka komputerów
     Computer create(String processor, int memory) {
         Computer computer = new Computer();
         computer.processor = processor;
