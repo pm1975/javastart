@@ -23,6 +23,8 @@ public class Library {
 //        System.out.println(book1.isbn);
         final String appName = "Biblioteka v0.3";
 
+        System.out.println(appName);
+        System.out.println("Książki dostępne w bibliotece:");
         Book book1 = new Book("W pustyni i w puszczy", "Henryk Sienkiewicz", 2010,
                 296, "Greg", "9788373271890");
         Book book2 = new Book("Java. Efektywne programowanie. Wydanie II", "Joshua Bloch", 2009,
@@ -32,5 +34,7 @@ public class Library {
         book1.printInfo();
         book2.printInfo();
         book3.printInfo();
+
+        book1.printInfo2(); //option + Enter - IntelliJ tworzy automatycznie metodę (windows: alt+Enter)
     }
 }
