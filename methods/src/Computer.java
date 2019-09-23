@@ -6,6 +6,20 @@ public class Computer {
     String processor;
     int memory;
 
+    public Computer() {
+        System.out.println("Tworzę nowy komputer.");
+    }
+
+    public Computer(String processor) {
+        this.processor = processor;
+        memory = 8192;
+    }
+
+    public Computer(String processor, int memory) {
+        this.processor = processor;
+        this.memory = memory;
+    }
+
     void printInfo() {
         System.out.println(getInfo());
     }
