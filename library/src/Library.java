@@ -18,5 +18,6 @@ public class Library {
         book3.printInfo();
 
         book1.printInfo2(); //option + Enter - IntelliJ tworzy automatycznie metodę (windows: alt+Enter)
+        // command + B - przenosi do metody w klasie (definicji)
     }
 }
