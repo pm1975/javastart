@@ -1,9 +1,13 @@
+package app;
+
+import model.Book;
+
 /**
  * Created by Piotr on 2019-09-09
  */
 public class Library {
     public static void main(String[] args) {
-        final String appName = "Biblioteka v0.4";
+        final String appName = "Biblioteka v0.5";
 
         System.out.println(appName);
         System.out.println("Książki dostępne w bibliotece:");
