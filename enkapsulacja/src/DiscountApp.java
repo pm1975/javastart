@@ -7,21 +7,18 @@
 */
 class DiscountApp {
     public static void main(String[] args) {
-        Client client1 = new Client("Jan", "Kowalski", true);
+        Client client1 = new Client(null, "Kowalski", true);
         double price = 1100; //zł
-        DiscountService discountService = new DiscountService();
-        double discountPrice = discountService.calculateDiscountPrice(client1, price);
-
-        System.out.println("Witaj " + client1.getFirstName() + " " + client1.getLastName());
-        System.out.println("Kwota przed rabatem: " + price);
-        System.out.println("Do zapłaty (po rabacie): " + discountPrice);
 
         Client client2 = new Client("Karol", "Nowak", false);
         double price2 = 1100; //zł
+
+        DiscountService discountService = new DiscountService();
+        double discountPrice = discountService.calculateDiscountPrice(client1, price);
         double discountPrice2 = discountService.calculateDiscountPrice(client2, price2);
 
-        System.out.println("Witaj " + client2.getFirstName() + " " + client2.getLastName());
-        System.out.println("Kwota przed rabatem: " + price2);
-        System.out.println("Do zapłaty (po rabacie): " + discountPrice2);
+        PrintService printService = new PrintService();
+        printService.printSummary(client1, price, discountPrice);
+        printService.printSummary(client2, price2, discountPrice2);
     }
 }
