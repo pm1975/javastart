@@ -7,21 +7,25 @@ import model.Book;
  */
 public class Library {
     public static void main(String[] args) {
-        final String appName = "Biblioteka v0.6";
+        final String appName = "Biblioteka v0.7";
 
+        Book[] books = new Book[1000];
+        books[0] = new Book("W pustyni i w puszczy", "Henryk Sienkiewicz", 2010,
+                296, "Greg", "9788373271890");
+        books[1] = new Book("Java. Efektywne programowanie. Wydanie II", "Joshua Bloch", 2009,
+                352, "Helion", "9788324620845");
+        books[2] = new Book("Pismo Święte starego i nowego testamentu", "Zespół biblistów polskich",
+                1980, 1439, "Pallottinum");
         System.out.println(appName);
         System.out.println("Książki dostępne w bibliotece:");
-        Book book1 = new Book("W pustyni i w puszczy", "Henryk Sienkiewicz", 2010,
-                296, "Greg", "9788373271890");
-        Book book2 = new Book("Java. Efektywne programowanie. Wydanie II", "Joshua Bloch", 2009,
-                352, "Helion", "9788324620845");
-        Book book3 = new Book("Pismo Święte starego i nowego testamentu", "Zespół biblistów polskich",
-                1980, 1439, "Pallottinum");
-        book1.printInfo();
-        book2.printInfo();
-        book3.printInfo();
 
-        book1.printInfo2(); //option + Enter - IntelliJ tworzy automatycznie metodę (windows: alt+Enter)
+        books[0].printInfo();
+        books[1].printInfo();
+        books[2].printInfo();
+
+        books[0].printInfo2(); //option + Enter - IntelliJ tworzy automatycznie metodę (windows: alt+Enter)
         // command + B - przenosi do metody w klasie (definicji)
+
+        System.out.println("System może przechowywać do " + books.length + " książek.");
     }
 }
