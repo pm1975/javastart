@@ -17,5 +17,8 @@ public class World {
         System.out.println(adam.avgHeight);
         System.out.println(eve.avgHeight);
         System.out.println(Human.avgHeight);
+
+        Human human = (Human) null;
+        System.out.println(human.avgHeight);
     }
 }
