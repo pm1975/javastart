@@ -14,6 +14,12 @@ public class DataReader {
         sc.close();
     }
 
+    public int getInt() {
+        int number = sc.nextInt();
+        sc.nextLine();
+        return number;
+    }
+
     public Book readAndCreateBook() {
         System.out.println("Tytuł: ");
         String title = sc.nextLine();
@@ -24,11 +30,9 @@ public class DataReader {
         System.out.println("ISBN: ");
         String isbn = sc.nextLine();
         System.out.println("Rok wydania: ");
-        int releaseDate = sc.nextInt();
-        sc.nextLine();
+        int releaseDate = getInt();
         System.out.println("Ilość stron: ");
-        int pages = sc.nextInt();
-        sc.nextLine();
+        int pages = getInt();
 
         return new Book(title, author, releaseDate, pages, publisher, isbn);
     }
