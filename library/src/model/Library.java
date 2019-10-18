@@ -1,8 +1,5 @@
 package model;
 
-import io.DataReader;
-import model.Book;
-
 /**
  * Created by Piotr on 2019-09-09
  */
