@@ -1,6 +1,6 @@
-package io;
+package src.io;
 
-import model.Book;
+import src.model.Book;
 
 import java.util.Scanner;
 
