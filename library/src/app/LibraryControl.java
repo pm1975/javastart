@@ -1,8 +1,8 @@
-package src.app;
+package app;
 
-import src.io.DataReader;
-import src.model.Book;
-import src.model.Library;
+import io.DataReader;
+import model.Book;
+import model.Library;
 
 /**
  * Created by Piotr on 2019-10-14
