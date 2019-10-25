@@ -52,7 +52,7 @@ public class DataReader {
         System.out.println("Dzień: ");
         int day = getInt();
 
-        return new Magazine((title), publisher, language, year, month, day);
+        return new Magazine(title, publisher, language, year, month, day);
     }
 }
 
