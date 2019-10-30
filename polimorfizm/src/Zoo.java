@@ -29,6 +29,8 @@ public class Zoo {
             // obiekt Dog. W tym przypadku if się nie wykona i nie dojdzie do rzutowania.
             ((Dog) cat).bark();
         }
+
+        Object burek = "Burek";
     }
 
     private static void changeAnimalName(Animal animal, String newName) {
