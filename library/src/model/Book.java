@@ -52,7 +52,4 @@ public class Book extends Publication{
         }
         System.out.println(info);
     }
-
-    public void printInfo2() {
-    }
 }
