@@ -1,4 +1,4 @@
-package polimorfizm_poprawnie;
+package z25_polimorfizm.poprawnie;
 
 /**
  * Created by Piotr on 2019-10-30

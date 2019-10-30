@@ -1,4 +1,4 @@
-package polimorfizm_moja_proba;
+package z25_polimorfizm.poprawnie.moja_proba;
 
 /**
  * Created by Piotr on 2019-10-30

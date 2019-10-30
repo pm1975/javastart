@@ -1,17 +1,17 @@
-package polimorfizm_moja_proba;
+package z25_polimorfizm.poprawnie;
 
 /**
- * Created by Piotr on 2019-10-29
+ * Created by Piotr on 2019-10-30
  */
 public class Person {
     private String firstName;
     private String lastName;
-    private double payment;
+    private double salary; //wynagrodzenie
 
-    public Person(String firstName, String lastName, double payment) {
+    public Person(String firstName, String lastName, double salary) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.payment = payment;
+        this.salary = salary;
     }
 
     public String getFirstName() {
@@ -30,11 +30,15 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public double getPayment() {
-        return payment;
+    public double getSalary() {
+        return salary;
     }
 
-    public void setPayment(double payment) {
-        this.payment = payment;
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public String getInfo() {
+        return "Imię: " + firstName + ", Nazwisko: " + lastName + ", Wypłata " + salary;
     }
 }
