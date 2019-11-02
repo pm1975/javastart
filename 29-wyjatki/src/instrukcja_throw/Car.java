@@ -1,4 +1,4 @@
-package src;
+package src.instrukcja_throw;
 
 public class Car {
     private static final double FUEL_CONSUMPTION = 8; //8l/100km

@@ -1,4 +1,6 @@
-package src;
+package src.instrukcja_throw;
+
+import src.instrukcja_throw.Car;
 
 public class CarTest {
     public static void main(String[] args) {
