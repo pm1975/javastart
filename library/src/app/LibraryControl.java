@@ -64,7 +64,7 @@ public class LibraryControl {
     }
 
     private void printOptions() {
-        System.out.println("Wybierz opcję:");
+        printer.printLine("Wybierz opcję:");
         for (Option option : Option.values()) {
             printer.printLine(option.toString());
         }
