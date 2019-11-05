@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Created by Piotr on 2019-10-24
  */
-public class Publication {
+public abstract class Publication {
     private String title;
     private String publisher;
     private int year;
