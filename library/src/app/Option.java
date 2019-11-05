@@ -1,5 +1,7 @@
 package app;
 
+import exception.NoSuchOptionException;
+
 /**
  * Created by Piotr on 2019-10-31
  */
@@ -12,6 +14,14 @@ public enum Option {
     private int value;
     private String description;
 
+    public int getValue() {
+        return value;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     Option(int value, String description) {
         this.value = value;
         this.description = description;
@@ -22,7 +32,11 @@ public enum Option {
         return value + " - " + description;
     }
 
-    static Option createFromInt(int option) {
-        return Option.values()[option];
+    static Option createFromInt(int option) throws NoSuchOptionException {
+        try {
+            return Option.values()[option];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new NoSuchOptionException("Brak opcji o id " + option);
+        }
     }
 }
