@@ -1,7 +1,7 @@
-package io;
+package src.io;
 
-import model.Book;
-import model.Magazine;
+import src.model.Book;
+import src.model.Magazine;
 
 import java.util.Scanner;
 

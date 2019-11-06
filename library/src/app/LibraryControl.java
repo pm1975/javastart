@@ -1,12 +1,12 @@
-package app;
+package src.app;
 
-import exception.NoSuchOptionException;
-import io.ConsolePrinter;
-import io.DataReader;
-import model.Book;
-import model.Library;
-import model.Magazine;
-import model.Publication;
+import src.exception.NoSuchOptionException;
+import src.io.ConsolePrinter;
+import src.io.DataReader;
+import src.model.Book;
+import src.model.Library;
+import src.model.Magazine;
+import src.model.Publication;
 
 import java.util.InputMismatchException;
 

@@ -1,6 +1,6 @@
-package app;
+package src.app;
 
-import exception.NoSuchOptionException;
+import src.exception.NoSuchOptionException;
 
 /**
  * Created by Piotr on 2019-10-31
