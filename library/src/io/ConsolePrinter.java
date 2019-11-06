@@ -1,8 +1,8 @@
-package src.io;
+package io;
 
-import src.model.Book;
-import src.model.Magazine;
-import src.model.Publication;
+import model.Book;
+import model.Magazine;
+import model.Publication;
 
 /**
  * Created by Piotr on 2019-11-05
