@@ -1,12 +1,12 @@
-package app;
+package src.app;
 
-import exception.NoSuchOptionException;
-import io.ConsolePrinter;
-import io.DataReader;
-import model.Book;
-import model.Library;
-import model.Magazine;
-import model.Publication;
+import src.exception.NoSuchOptionException;
+import src.io.ConsolePrinter;
+import src.io.DataReader;
+import src.model.Book;
+import src.model.Library;
+import src.model.Magazine;
+import src.model.Publication;
 
 import java.util.InputMismatchException;
 
@@ -106,5 +106,33 @@ public class LibraryControl {
         System.out.println("Koniec programu!");
         //zamykamy strumień wejścia
         dataReader.close();
+    }
+
+    private enum Option {
+        EXIT(0,"Wyjście z programu"),
+        ADD_BOOK(1, "Dodanie książki"),
+        ADD_MAGAZINE(2, "Dodanie magazynu/gazety"),
+        PRINT_BOOKS(3, "Wyświetlenie dostępnych książek"),
+        PRINT_MAGAZINES(4, "Wyświetlenie dostępnych magazynów/gazet");
+        private int value;
+        private String description;
+
+        Option(int value, String description) {
+            this.value = value;
+            this.description = description;
+        }
+
+        @Override
+        public String toString() {
+            return value + " - " + description;
+        }
+
+        static Option createFromInt(int option) throws NoSuchOptionException {
+            try {
+                return Option.values()[option];
+            } catch (ArrayIndexOutOfBoundsException e) {
+                throw new NoSuchOptionException("Brak opcji o id " + option);
+            }
+        }
     }
 }

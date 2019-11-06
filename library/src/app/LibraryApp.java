@@ -1,4 +1,4 @@
-package app;
+package src.app;
 
 public class LibraryApp {
     private static final String APP_NAME = "Biblioteka v1.5.1";
