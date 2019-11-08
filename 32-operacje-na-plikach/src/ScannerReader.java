@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 /**
  * Created by Piotr on 2019-11-07
  */
-public class ScannerReader {
-=======
-package src;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -30,5 +25,4 @@ public class ScannerReader {
 
 
     }
->>>>>>> 12773b33dc065549d1c17e56b4a91b6f456a4999
 }
