@@ -1,4 +1,4 @@
-package src.task;
+package task;
 
 import java.io.*;
 import java.rmi.NoSuchObjectException;
@@ -9,6 +9,7 @@ public class CompanyApp {
     static Scanner sc = new Scanner(System.in);
     static String fileName = "company.obj";
     public static void main(String[] args) {
+        System.out.println("Informacje o pracownikach.");
         Company company = null;
         Option option;
         do {
@@ -18,13 +19,19 @@ public class CompanyApp {
                 case EXIT: break;
                 case ADD_PEOPLE:
                     company = addEmployees();
+                    printCompany(company);
                     break;
                 case WRITE_FILE:
                     company = readFile();
+                    printCompany(company);
                     break;
             }
+
         } while (option != Option.EXIT);
         sc.close();
+    }
+    private static void printCompany(Company company)
+    {
         if (company != null)
         {
             System.out.println(company.toString());
@@ -39,9 +46,10 @@ public class CompanyApp {
                 ) {
             company = (Company) ois.readObject();
         } catch (IOException e) {
+            System.out.println("Niepoprawna wersja pliku.");
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Nie udało się odczytać pliku.");
         }
         return company;
     }
@@ -110,7 +118,7 @@ public class CompanyApp {
         return option;
     }
     private static void printOptions() {
-        System.out.println("Informacje o pracownikach. Wybierz opcję:");
+        System.out.println("2Wybierz opcję:");
         for (Option option : Option.values()) {
             System.out.println(option.toString());
         }

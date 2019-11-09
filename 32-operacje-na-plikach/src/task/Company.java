@@ -1,9 +1,10 @@
-package src.task;
+package task;
 
 import java.io.BufferedReader;
 import java.io.Serializable;
 
 public class Company implements Serializable {
+    private final static long serialVersionUID = 7979797979797979797L;
     private static final int MAX_EMPLOYEE = 3;
     private int countEmployee;
 

@@ -1,4 +1,4 @@
-package src.task;
+package task;
 
 public class Employee extends Person {
     private double salary;
@@ -14,5 +14,10 @@ public class Employee extends Person {
     public Employee(String firstName, String lastName, double salary) {
         super(firstName, lastName);
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " " + salary;
     }
 }
