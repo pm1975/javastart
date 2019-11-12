@@ -1,9 +1,11 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * Created by Piotr on 2019-09-09
  */
-public class Library {
+public class Library implements Serializable {
 
     private static final int MAX_PUBLICATIONS = 2000;
     private int publicationsNumber;
