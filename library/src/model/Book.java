@@ -6,6 +6,8 @@ import java.util.Objects;
  * Created by Piotr on 2019-09-17
  */
 public class Book extends Publication{
+    public static final String TYPE = "Książka";
+
     //Pola
     private String author;
     private int pages;
@@ -42,6 +44,17 @@ public class Book extends Publication{
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    @Override
+    public String toCsv() {
+        return (TYPE + ";") +
+                getTitle() + ";" +
+                getPublisher() + ";" +
+                getYear() + ";" +
+                author + ";" +
+                pages + ";" +
+                isbn + "";
     }
 
     @Override

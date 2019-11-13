@@ -4,6 +4,8 @@ package model;
  * Created by Piotr on 2019-10-24
  */
 public class Magazine extends Publication {
+    public static final String TYPE = "Magazyn";
+
     private int month;
     private int day;
     private String language;
@@ -37,6 +39,17 @@ public class Magazine extends Publication {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    @Override
+    public String toCsv() {
+        return (TYPE + ";" ) +
+                getTitle() + ";" +
+                getPublisher() + ";" +
+                getYear() + ";" +
+                month + ";" +
+                day + ";" +
+                language + "";
     }
 
     @Override

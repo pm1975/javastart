@@ -7,6 +7,9 @@ import java.util.Objects;
  * Created by Piotr on 2019-10-24
  */
 public abstract class Publication implements Serializable {
+
+    public abstract String toCsv();
+
     private String title;
     private String publisher;
     private int year;
