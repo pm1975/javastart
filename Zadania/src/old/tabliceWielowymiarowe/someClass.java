@@ -1,4 +1,4 @@
-package tabliceWielowymiarowe;
+package old.tabliceWielowymiarowe;
 
 /**
  * Created by Piotr on 2019-10-04

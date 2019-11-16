@@ -1,4 +1,4 @@
-package petle2;
+package old.petle2;
 
 import java.util.Scanner;
 

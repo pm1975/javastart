@@ -1,4 +1,4 @@
-package petle2;
+package old.petle2;
 
 /**
  * Created by Piotr on 2019-10-09

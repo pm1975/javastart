@@ -1,4 +1,4 @@
-package tabliceJednowymiarowe;
+package old.tabliceJednowymiarowe;
 
 /**
  * Created by Piotr on 2019-10-03

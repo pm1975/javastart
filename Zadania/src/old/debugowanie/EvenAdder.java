@@ -1,4 +1,4 @@
-package debugowanie;
+package old.debugowanie;
 
 import java.util.Arrays;
 import java.util.Scanner;
