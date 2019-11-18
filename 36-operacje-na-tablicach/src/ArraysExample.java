@@ -26,7 +26,7 @@ public class ArraysExample {
 
         //copyOf
         System.out.println("Numbers2, Arrays.copyOf()");
-        Integer[] numbers2 = Arrays.copyOf(numbers, numbers.length);
+        Integer[] numbers2 = Arrays.copyOf(numbers, numbers.length + 2);
         printArrays(numbers2);
         System.out.println();
 
