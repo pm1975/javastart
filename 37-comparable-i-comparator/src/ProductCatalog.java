@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class ProductCatalog {
     public static void main(String[] args) {
@@ -19,6 +20,29 @@ public class ProductCatalog {
 
         Arrays.sort(products);
         System.out.println("Posortowana: ");
+        for (Product p : products) {
+            System.out.println(p);
+        }
+
+        Arrays.sort(products, new Product.ProductNameComparator());
+        System.out.println("Posortowana według Comparatora (zagnieżdżona klasa wewnętrzna) Name: ");
+        for (Product p : products) {
+            System.out.println(p);
+        }
+
+        Arrays.sort(products, new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                return o1.getProducer().compareTo(o2.getProducer());
+            }
+        });
+        System.out.println("Posortowana według Comparatora (klasa anonimowa) Producer: ");
+        for (Product p : products) {
+            System.out.println(p);
+        }
+
+        Arrays.sort(products, new ProductNameComparator());
+        System.out.println("Posortowana według Comparatora (osobna klasa) Name: ");
         for (Product p : products) {
             System.out.println(p);
         }

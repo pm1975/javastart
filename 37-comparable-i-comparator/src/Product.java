@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public class Product implements Comparable<Product> {
     private String producer;
     private String name;
@@ -50,4 +52,14 @@ public class Product implements Comparable<Product> {
         }
         return name.compareTo(p.getName());
     }
+
+    //zagnieżdżona klasa wewnętrzna
+    public static class ProductNameComparator implements Comparator<Product> {
+
+        @Override
+        public int compare(Product p1, Product p2) {
+            return p1.getName().compareTo(p2.getName());
+        }
+    }
+
 }
