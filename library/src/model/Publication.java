@@ -6,7 +6,7 @@ import java.util.Objects;
 /**
  * Created by Piotr on 2019-10-24
  */
-public abstract class Publication implements Serializable {
+public abstract class Publication implements Serializable, Comparable<Publication> {
 
     public abstract String toCsv();
 
@@ -20,7 +20,7 @@ public abstract class Publication implements Serializable {
         this.year = year;
     }
 
-    int getYear() {
+    public int getYear() {
         return year;
     }
 
@@ -28,7 +28,7 @@ public abstract class Publication implements Serializable {
         this.year = year;
     }
 
-    String getTitle() {
+    public String getTitle() {
         return title;
     }
 
@@ -62,5 +62,10 @@ public abstract class Publication implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(title, publisher, year);
+    }
+
+    @Override
+    public int compareTo(Publication p) {
+        return title.compareToIgnoreCase(p.title);
     }
 }
