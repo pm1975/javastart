@@ -18,22 +18,24 @@ public class app {
                 try {
                     exit = sc.next();
                     sc.nextLine();
-                    if (exit != "exit") {
+                    String ex = "exit";
+                    if (!exit.equals("exit")) {
                         double number = Double.parseDouble(exit);
                         list.add(number);
                     }
                 } catch (Exception e) {
                     System.out.println("To nie jest cyfra.");
                 }
-        } while (exit != "exit");
+        } while (!exit.equals("exit"));
 
         double sum = 0;
-        if (list.size() > 0) {
-            System.out.println(list.get(0));
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < list.size(); i++) {
+           sb.append(list.get(i) + " + ");
+           sum += list.get(i);
         }
-        for (int i = 1; i < list.size(); i++) {
-            System.out.println(" + " + i);
-        }
-        System.out.println(" = " + sum);
+        String text = sb.toString().substring(0, sb.length() - 3);
+        System.out.println(text + " = " + sum);
     }
+
 }
