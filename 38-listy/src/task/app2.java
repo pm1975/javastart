@@ -15,10 +15,9 @@ public class app2 {
         do {
             try {
                 list = rekurencja(sc, list);
+                tryAgain = false;
             } catch (exitException e) {
-                if (e.getMessage() == "exit")
-                    tryAgain = false;
-                else System.out.println(e.getMessage());
+                System.out.println(e.getMessage());
             }
         } while (tryAgain);
         double sum = 0;
@@ -43,9 +42,9 @@ public class app2 {
             rekurencja(sc, list);
         } catch (Exception e) {
             if (exit.equals("exit")) {
-                throw new exitException("exit");
+                return list;
             } else {
-                throw new exitException(exit + " to nie jest cyfra.");
+                throw new exitException("To nie jest cyfra.");
             }
         }
         return list;
