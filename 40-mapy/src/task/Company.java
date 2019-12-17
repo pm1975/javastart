@@ -8,7 +8,7 @@ public class Company {
     Map<String, Employee> people = new HashMap<>();
 
     public void addNewPeople(Employee employee) {
-        people.put(employee.getLastName() + employee.getLastName(), employee);
+        people.put(employee.getFirstName() + employee.getLastName(), employee);
     }
 
     public String findPeople(String firstName, String lastName) {

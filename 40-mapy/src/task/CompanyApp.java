@@ -6,25 +6,28 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class CompanyApp {
+    static Company company = new Company();
     public static void main(String[] args) {
-        Company company = new Company();
         Option option = null;
-        Scanner sc = new Scanner(System.in);
-        do {
-            printMenu();
-            option = getOption(sc);
-            switch (option) {
-                case EXIT:break;
-                case SEARCH: findPerson(company); break;
-                case ADD: addPerson(company);break;
-            }
-        } while (option != Option.EXIT);
+        try (Scanner sc = new Scanner(System.in)) {
+            do {
+                printMenu();
+                option = getOption(sc);
+                switch (option) {
+                    case EXIT:
+                        break;
+                    case SEARCH:
+                        findPerson(sc);
+                        break;
+                    case ADD:
+                        addPerson(sc);
+                        break;
+                }
+            } while (option != Option.EXIT);
+        }
     }
 
-    private static void addPerson(Company company) {
-        try (
-                Scanner sc = new Scanner(System.in);
-        ) {
+    private static void addPerson(Scanner sc) {
             System.out.println("Dodawanie osoby.");
             System.out.println("Wprowadź imię:");
             String fn = sc.nextLine();
@@ -34,20 +37,15 @@ public class CompanyApp {
             double salary = sc.nextDouble();
             sc.nextLine();
             company.addNewPeople(new Employee(fn, ln, salary));
-        }
     }
 
-    private static void findPerson(Company company) {
-        try (
-                Scanner sc = new Scanner(System.in);
-        ) {
-            System.out.println("Szukanie osoby.");
-            System.out.println("Podaj imię:");
-            String fn = sc.nextLine();
-            System.out.println("Podaj nazwisko:");
-            String ln = sc.nextLine();
-            System.out.println(company.findPeople(fn, ln));
-        }
+    private static void findPerson(Scanner sc) {
+        System.out.println("Szukanie osoby.");
+        System.out.println("Podaj imię:");
+        String fn = sc.nextLine();
+        System.out.println("Podaj nazwisko:");
+        String ln = sc.nextLine();
+        System.out.println(company.findPeople(fn, ln));
     }
 
     static void printMenu() {
