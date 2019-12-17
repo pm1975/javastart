@@ -1,18 +1,14 @@
 package task;
 
 
-import java.io.IOException;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class CompanyApp {
     public static void main(String[] args) {
         Company company = new Company();
-        Option option = null;
-        Scanner sc = new Scanner(System.in);
+        Option option;
         do {
-            printMenu();
-            option = getOption(sc);
+            option = chooseOption();
             switch (option) {
                 case EXIT:break;
                 case SEARCH: findPerson(company); break;
@@ -23,7 +19,7 @@ public class CompanyApp {
 
     private static void addPerson(Company company) {
         try (
-                Scanner sc = new Scanner(System.in);
+                Scanner sc = new Scanner(System.in)
         ) {
             System.out.println("Dodawanie osoby.");
             System.out.println("Wprowadź imię:");
@@ -39,7 +35,7 @@ public class CompanyApp {
 
     private static void findPerson(Company company) {
         try (
-                Scanner sc = new Scanner(System.in);
+                Scanner sc = new Scanner(System.in)
         ) {
             System.out.println("Szukanie osoby.");
             System.out.println("Podaj imię:");
@@ -56,19 +52,17 @@ public class CompanyApp {
             System.out.println(value);
         }
     }
-
-    private static Option getOption(Scanner sc) {
-        boolean optionOk = false;
-        Option option = null;
-        while (!optionOk) {
-            try {
-                option = Option.values()[getInt(sc)];
-                optionOk = true;
+    static Option chooseOption() {
+        while (true) {
+            printMenu();
+            try (
+                    Scanner sc = new Scanner(System.in)
+            ) {
+                return Option.getOption(getInt(sc));
             } catch (Exception e) {
-                System.err.println("Niepoprawna opcja. Podaj jeszcze raz.");
+                System.err.println(e.toString());
             }
         }
-        return option;
     }
 
     private static int getInt(Scanner sc) {
@@ -95,6 +89,13 @@ public class CompanyApp {
         Option(int value, String description) {
             this.value = value;
             this.description = description;
+        }
+
+        final static Option getOption(int optionValue) {
+            for (Option l : Option.values()) {
+                if (l.value == optionValue) return l;
+            }
+            throw  new IllegalArgumentException("Nie ma takiej opcji.");
         }
 
     }
