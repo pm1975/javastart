@@ -1,26 +1,27 @@
 package task;
 
 
+import java.security.cert.Extension;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CompanyApp {
+    static Company company = new Company();
     public static void main(String[] args) {
-        Company company = new Company();
-        Option option;
-        do {
-            option = chooseOption();
-            switch (option) {
-                case EXIT:break;
-                case SEARCH: findPerson(company); break;
-                case ADD: addPerson(company);break;
-            }
-        } while (option != Option.EXIT);
+        try (Scanner sc = new Scanner(System.in)) {
+            Option option;
+            do {
+                option = chooseOption(sc);
+                switch (option) {
+                    case EXIT: break;
+                    case SEARCH: findPerson(sc); break;
+                    case ADD: addPerson(sc); break;
+                }
+            } while (option != Option.EXIT);
+        }
     }
 
-    private static void addPerson(Company company) {
-        try (
-                Scanner sc = new Scanner(System.in)
-        ) {
+    private static void addPerson(Scanner sc) {
             System.out.println("Dodawanie osoby.");
             System.out.println("Wprowadź imię:");
             String fn = sc.nextLine();
@@ -30,20 +31,15 @@ public class CompanyApp {
             double salary = sc.nextDouble();
             sc.nextLine();
             company.addNewPeople(new Employee(fn, ln, salary));
-        }
     }
 
-    private static void findPerson(Company company) {
-        try (
-                Scanner sc = new Scanner(System.in)
-        ) {
-            System.out.println("Szukanie osoby.");
-            System.out.println("Podaj imię:");
-            String fn = sc.nextLine();
-            System.out.println("Podaj nazwisko:");
-            String ln = sc.nextLine();
-            System.out.println(company.findPeople(fn, ln));
-        }
+    private static void findPerson(Scanner sc) {
+        System.out.println("Szukanie osoby.");
+        System.out.println("Podaj imię:");
+        String fn = sc.nextLine();
+        System.out.println("Podaj nazwisko:");
+        String ln = sc.nextLine();
+        System.out.println(company.findPeople(fn, ln));
     }
 
     static void printMenu() {
@@ -52,12 +48,10 @@ public class CompanyApp {
             System.out.println(value);
         }
     }
-    static Option chooseOption() {
+    static Option chooseOption(Scanner sc) {
         while (true) {
             printMenu();
-            try (
-                    Scanner sc = new Scanner(System.in)
-            ) {
+            try {
                 return Option.getOption(getInt(sc));
             } catch (Exception e) {
                 System.err.println(e.toString());
@@ -91,11 +85,11 @@ public class CompanyApp {
             this.description = description;
         }
 
-        final static Option getOption(int optionValue) {
+        final static Option getOption(int optionValue) throws Exception {
             for (Option l : Option.values()) {
                 if (l.value == optionValue) return l;
             }
-            throw  new IllegalArgumentException("Nie ma takiej opcji.");
+            throw new Exception("Nie ma takiej opcji.");
         }
 
     }
