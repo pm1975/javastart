@@ -60,4 +60,6 @@ public abstract class User implements Serializable {
     public String toString() {
         return firstName + " " + lastName + " - " + pesel;
     }
+
+    public abstract String toCsv();
 }
