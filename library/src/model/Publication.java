@@ -6,10 +6,7 @@ import java.util.Objects;
 /**
  * Created by Piotr on 2019-10-24
  */
-public abstract class Publication implements Serializable, Comparable<Publication> {
-
-    public abstract String toCsv();
-
+public abstract class Publication implements Serializable, Comparable<Publication>, CsvConvertible {
     private String title;
     private String publisher;
     private int year;

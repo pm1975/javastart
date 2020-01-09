@@ -6,7 +6,7 @@ import java.util.Objects;
 /**
  * Created by Piotr on 2019-12-17
  */
-public abstract class User implements Serializable {
+public abstract class User implements Serializable, CsvConvertible {
     private String firstName;
     private String lastName;
     private String pesel;
@@ -61,5 +61,4 @@ public abstract class User implements Serializable {
         return firstName + " " + lastName + " - " + pesel;
     }
 
-    public abstract String toCsv();
 }
