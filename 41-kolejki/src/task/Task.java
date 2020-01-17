@@ -40,7 +40,7 @@ public class Task implements Comparable<Task>{
 
     @Override
     public String toString() {
-        return name + " " + description;
+        return name + " - " + description;
     }
 
     @Override
