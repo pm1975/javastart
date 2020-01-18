@@ -36,6 +36,7 @@ public class TaskManager {
         if (taskQueue.isEmpty()) {
             System.out.println("Brak zadań do wykonania");
         } else {
+            System.out.println(taskQueue);
             Task nextTask = taskQueue.poll();
             System.out.println("Zadanie do wykonania: ");
             System.out.println(nextTask);

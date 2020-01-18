@@ -1,7 +1,7 @@
-package task;
+package taskmyself;
 
 /**
- * Created by Piotr on 2020-01-16
+ * Created by Piotr on 2020-01-18
  */
 public class Task implements Comparable<Task>{
     private String name;
@@ -39,16 +39,16 @@ public class Task implements Comparable<Task>{
     }
 
     @Override
-    public String toString() {
-        return name + " - " + description;
-    }
-
-    @Override
     public int compareTo(Task t) {
         return priority.compareTo(t.priority);
     }
 
     public enum Priority {
-        LOW, MEDIUM, HIGH;
+    HIGH, MODERATE, LOW
+    }
+
+    @Override
+    public String toString() {
+        return name + " - " + description + " - " + priority;
     }
 }
