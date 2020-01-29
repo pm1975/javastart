@@ -10,6 +10,7 @@ import model.comparator.AlphabeticalTitleComparator;
 import model.comparator.DateComparator;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.InputMismatchException;
 
 /**
@@ -88,7 +89,7 @@ public class LibraryControl {
             }
         }
 
-        return  option;
+        return option;
     }
 
     private void printOptions() {
@@ -130,19 +131,23 @@ public class LibraryControl {
         }
     }
 
-    //zmiana logiki
+    //wyświetlanie posortownych danych
     private void printBooks() {
-        printer.printBooks(library.getPublications().values());
+        printer.printBooks(library.getSortedPublications(new AlphabeticalTitleComparator()));
     }
 
-    //zmiana logiki
     private void printMagazines() {
-        printer.printMagazines(library.getPublications().values());
+        printer.printMagazines(library.getSortedPublications(new AlphabeticalTitleComparator()));
     }
 
     //dodano
     private void printUsers() {
-        printer.printUsers(library.getUsers().values());
+        printer.printUsers(library.getSortedUsers(new Comparator<LibraryUser>() {
+            @Override
+            public int compare(LibraryUser p1, LibraryUser p2) {
+                return p1.getLastName().compareToIgnoreCase(p2.getLastName());
+            }
+        }));
     }
 
     private void deleteMagazine() {
@@ -181,7 +186,7 @@ public class LibraryControl {
     }
 
     private enum Option {
-        EXIT(0,"Wyjście z programu"),
+        EXIT(0, "Wyjście z programu"),
         ADD_BOOK(1, "Dodanie książki"),
         ADD_MAGAZINE(2, "Dodanie magazynu/gazety"),
         PRINT_BOOKS(3, "Wyświetlenie dostępnych książek"),
