@@ -1,3 +1,4 @@
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 /**
@@ -6,9 +7,15 @@ import java.util.function.Function;
 public class Functions {
     public static void main(String[] args) {
         String original = "   WIELKI NAPIS   ";
-        Function<String,String> funcLambda = s -> s.toLowerCase().trim();
-        String changed2 = funcLambda.apply(original);
-        System.out.println(changed2);
+        Function<String,String> func = s -> s.toLowerCase().trim();
+        String changed = func.apply(original);
+        Consumer<String> print3Times = s -> {
+            for (int i = 0; i < 3; i++) {
+                System.out.println(s);
+            }
+        };
+        print3Times.accept(changed);
+        
         //T t ->
         //T t -> return R
     }
