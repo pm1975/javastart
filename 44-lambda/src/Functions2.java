@@ -1,6 +1,8 @@
+import java.util.Random;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 /**
  * Created by Piotr on 2020-02-15
@@ -24,29 +26,38 @@ public class Functions2 {
         String changed = func.apply(original);
 
         //print3Times(changed);
-        Consumer<String> print3Times = (String s) -> {
-            System.out.println(s);
-            System.out.println(s);
-            System.out.println(s);
-        };
+        Consumer<String> print3Times = s -> { for (int i = 0; i < 3; i++) System.out.println(s); };
         print3Times.accept(changed);
 
         int personAge = 19;
         //boolean check1 = checkIfAdult(personAge);
+        //Predicate<Integer> checkIfAdult = (Integer age) -> age >= 18;
+        //na podstawie typu jaki podaliśmy w typie generycznym, kompulator jest w stanie wywnioskować,
+        //co się tutaj będzie działo.
+
         Predicate<Integer> checkIfAdult = age -> age >= 18;
         boolean check1 = checkIfAdult.test(personAge);
 
+        String[] firstNames = {"Jan", "Karol", "Piotr"};
+        String[] lastNames = {"Abacki", "Kowalski", "Zalewski"};
+        int[] ages = {22, 33, 44};
+        Random random = new Random();
+        Supplier<Person> randomPersonGenerator = () -> {
+            String firstName = firstNames[random.nextInt(firstNames.length)];
+            String lastName = lastNames[random.nextInt(lastNames.length)];
+            int age = ages[random.nextInt(ages.length)];
+            return new Person(firstName, lastName, age);
+        };
+
+        //() -> return Person
+        System.out.println(randomPersonGenerator.get());
+        System.out.println(randomPersonGenerator.get());
+        System.out.println(randomPersonGenerator.get());
+        System.out.println(randomPersonGenerator.get());
+        System.out.println(randomPersonGenerator.get());
+        System.out.println(randomPersonGenerator.get());
     }
 
-    //int -> return boolean
-    static boolean checkIfAdult(int age) {
-        return age >=18;
-    }
-//    private static void print3Times(String changed) {
-//        System.out.println(changed);
-//        System.out.println(changed);
-//        System.out.println(changed);
-//    }
 }
 
 
