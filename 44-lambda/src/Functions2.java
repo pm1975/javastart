@@ -42,7 +42,11 @@ public class Functions2 {
         String[] lastNames = {"Abacki", "Kowalski", "Zalewski"};
         int[] ages = {22, 33, 44};
         Random random = new Random();
+
+        //definiujemy Supplier'a, który dostarczy nam obiekt typu Person.
+        //Nazwiemy go randomPersonGenerator
         Supplier<Person> randomPersonGenerator = () -> {
+            //definiujemy dodatkową zmieną String
             String firstName = firstNames[random.nextInt(firstNames.length)];
             String lastName = lastNames[random.nextInt(lastNames.length)];
             int age = ages[random.nextInt(ages.length)];
