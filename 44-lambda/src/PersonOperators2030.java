@@ -1,15 +1,12 @@
-import org.w3c.dom.ls.LSOutput;
-
-import javax.crypto.spec.PSource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 /**
- * Created by Piotr on 2020-04-21
+ * Created by Piotr on 2020-04-22
  */
-public class PersonOperators15 {
+public class PersonOperators2030 {
     public static void main(String[] args) {
         List<Person> people = new ArrayList<>();
         people.add(new Person("Jan", "Kowalski", 42));
