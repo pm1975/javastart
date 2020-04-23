@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
- * Created by Piotr on 2020-04-22
+ * Created by Piotr on 2020-04-23
  */
-public class PersonOperators2030 {
+public class PersonOperators2526 {
     public static void main(String[] args) {
         List<Person> people = new ArrayList<>();
         people.add(new Person("Jan", "Kowalski", 42));
@@ -24,6 +25,20 @@ public class PersonOperators2030 {
         System.out.println(">>> Jan people");
         List<Person> janPeople = filterByPredicate(people, person -> "Jan".equals(person.getFirstName()));
         consumeList(janPeople, person -> System.out.println(person));
+
+        System.out.println(">>> FirstNames");
+        List<String> firstNames = convertList(people, person -> person.getFirstName());
+        List<Integer> ages = convertList(people, person -> person.getAge());
+        consumeList(firstNames, str -> System.out.println(str));
+    }
+
+    private static <T, R> List<R> convertList(List<T> list, Function<T, R> function) {
+        List<R> resultList = new ArrayList<>();
+        for (T t : list) {
+            R result = function.apply(t);
+            resultList.add(result);
+        }
+        return resultList;
     }
 
     //Person p -> boolean
