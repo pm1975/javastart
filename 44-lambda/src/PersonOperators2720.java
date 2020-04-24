@@ -1,22 +1,35 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 /**
  * Created by Piotr on 2020-04-23
  */
 public class PersonOperators2720 {
     public static void main(String[] args) {
-        List<Person> people = new ArrayList<>();
-        people.add(new Person("Jan", "Kowalski", 42));
-        people.add(new Person("Kasia", "Kruczkowska", 22));
-        people.add(new Person("Piotr", "Adamiak", 15));
-        people.add(new Person("Jan", "Zawadzki", 17));
-        people.add(new Person("Krzysztof", "Wojtyniak", 16));
-        people.add(new Person("Agnieszka", "Zagumna", 18));
-        people.add(new Person("Basia", "Cyniczna", 28));
+        String[] firstNames = {"Jan", "Karol", "Piotr", "Andrzej"};
+        String[] lastNames = {"Abacki", "Kowalski", "Zawadzki", "Korzeniowski"};
+        int[] ages = {11, 22, 33, 44, 55};
+        Random random = new Random();
+        Supplier<Person> supplier = () -> {
+            String firstName = firstNames[random.nextInt(firstNames.length)];
+            String lastName = lastNames[random.nextInt(lastNames.length)];
+            int age = ages[random.nextInt(ages.length)];
+            return new Person(firstName, lastName, age);
+        };
+
+        List<Person> people = generateRandomList(5, supplier);
+
+        System.out.println(">>> People");
+        consumeList(people, (Person p) -> System.out.println(p));
+        //operacje na people
+        System.out.println(">>> People age+1");
+        consumeList(people, person -> person.setAge(person.getAge() + 1));
+        consumeList(people, p -> System.out.println(p));
 
         System.out.println(">>> Adults");
         List<Person> adults = filterByPredicate(people, person -> person.getAge() >= 18);
@@ -27,8 +40,8 @@ public class PersonOperators2720 {
         consumeList(janPeople, person -> System.out.println(person));
 
         System.out.println(">>> FirstNames");
-        List<String> firstNames = convertList(people, person -> person.getFirstName());
-        consumeList(firstNames, str -> System.out.println(str));
+        List<String> firstNames2 = convertList(people, person -> person.getFirstName());
+        consumeList(firstNames2, str -> System.out.println(str));
     }
 
     private static <T, R> List<R> convertList(List<T> list, Function<T, R> function) {
@@ -49,9 +62,18 @@ public class PersonOperators2720 {
         }
         return result;
     }
+
     private static <T> void consumeList(List<T> list, Consumer<T> consumer) {
         for (T t : list) {
             consumer.accept(t);
         }
+    }
+
+    private static <T> List<T> generateRandomList(int elements, Supplier<T> supplier) {
+        List<T> result = new ArrayList<>();
+        for (int i = 0; i < elements; i++) {
+            result.add(supplier.get());
+        }
+        return result;
     }
 }
