@@ -1,0 +1,3 @@
+Help -> Edit Custom Properties
+> Add the next property into the file
+com.jetbrains.use.old.keyevent.processing=true

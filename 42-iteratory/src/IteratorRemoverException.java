@@ -41,7 +41,7 @@ public class IteratorRemoverException {
             if (name.equals("Maniek")) {
                 // blad - iterujemy po kolekcji za pomoca niejawnego iteratora
                 // petli for-each, a usuwamy
-                // obiekt metoda remove() bezposrednio z kolekcji
+                // obiekt metoda remove() bezposrednio z kolekcjiąęśćźżłł
                 names.remove(name);
             }
         }
