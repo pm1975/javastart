@@ -4,8 +4,7 @@ import exception.PublicationAlreadyExistsException;
 import exception.UserAlreadyExistsException;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Piotr on 2019-09-09
@@ -22,9 +21,21 @@ public class Library implements Serializable {
         return publications;
     }
 
+    public Collection<Publication> getSortedPublications(Comparator<Publication> comparator) {
+        List<Publication> list = new ArrayList<>(this.publications.values());
+        list.sort(comparator);
+        return list;
+    }
+
     //dodany getter
     public Map<String, LibraryUser> getUsers() {
         return users;
+    }
+
+    public Collection<LibraryUser> getSortedUsers(Comparator<LibraryUser> comparator) {
+        ArrayList<LibraryUser> list = new ArrayList<>(users.values());
+        list.sort(comparator);
+        return list;
     }
 
     //dodana metoda i rzucany nowy typ wyjątku
