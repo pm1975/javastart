@@ -5,6 +5,6 @@ public class Person {
     String firstName;
     String lastName;
     String pesel;
-    Address livingAddress; //adres zamieszkania
+    Address livingAddress;
     Address registeredAddress; //adres zameldowania
 }
