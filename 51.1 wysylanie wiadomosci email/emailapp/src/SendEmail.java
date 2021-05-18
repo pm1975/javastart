@@ -8,10 +8,10 @@ public class SendEmail {
         Email email = new SimpleEmail();
         email.setHostName("poczta.interia.pl");
         email.setSmtpPort(465);
-        email.setAuthenticator(new DefaultAuthenticator("piotr.mierniczak", "Programista7"));
+        email.setAuthenticator(new DefaultAuthenticator("piotr.mierniczak", "Programista75"));
         email.setSSLOnConnect(true);
         email.setFrom("piotr.mierniczak@interia.pl");
-        email.setSubject("Siema");
+        email.setSubject("Test77");
         email.setMsg("Witam, robię super kurs programowania!");
         email.addTo("piotr.mierniczak.ami@gmail.com");
         System.out.println("Rozpoczęto wysyłanie wiadomości email");
