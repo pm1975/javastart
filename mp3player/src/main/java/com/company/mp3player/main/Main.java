@@ -18,6 +18,7 @@ public class Main extends Application {
         Scene scene = new Scene(mainPane);
         stage.setScene(scene);
         stage.setTitle("Mp3 Player");
+        stage.setMaximized(true);
         stage.show();
     }
 }
