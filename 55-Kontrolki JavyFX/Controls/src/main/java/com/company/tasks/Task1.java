@@ -17,6 +17,7 @@ public class Task1 extends Application {
         Scene scene = new Scene(pane);
         stage.setScene(scene);
         stage.setMaximized(true);
+        stage.setTitle("Task1 1.0.0.1");
         stage.show();
     }
 }
