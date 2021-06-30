@@ -11,7 +11,7 @@ public class LoginController {
     private Label usernameLabel;
 
     @FXML
-    private TextField usernameTexField;
+    private TextField usernameTextField;
 
     @FXML
     private Button loginButton;
@@ -19,6 +19,6 @@ public class LoginController {
     public void initialize() {
         String labelText = usernameLabel.getText();
         System.out.println(labelText);
-        usernameTexField.setText("Tekst z kontrolera");
+        usernameTextField.setText("Tekst z kontrolera");
     }
 }
